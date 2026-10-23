@@ -1,0 +1,26 @@
+[
+  {
+    "company": "Atlas Studio (Demo)",
+    "position": "Frontend Developer",
+    "url": "https://example.com/frontend",
+    "appliedOn": "2026-10-20",
+    "status": "APPLIED",
+    "notes": "Synthetic portfolio sample"
+  },
+  {
+    "company": "Mavi Veri (Demo)",
+    "position": "Data Analyst",
+    "url": "https://example.com/data",
+    "appliedOn": "2026-10-18",
+    "status": "OFFER",
+    "notes": "Synthetic portfolio sample"
+  },
+  {
+    "company": "Nova Labs (Demo)",
+    "position": "Backend Developer",
+    "url": "",
+    "appliedOn": "2026-10-15",
+    "status": "REJECTED",
+    "notes": "Synthetic portfolio sample"
+  }
+]

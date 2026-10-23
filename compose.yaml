@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: applications
+      POSTGRES_USER: tracker
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tracker -d applications"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/applications
+      DB_USER: tracker
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+    ports: ["127.0.0.1:8080:8080"]
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    build: ./frontend
+    ports: ["127.0.0.1:3000:80"]
+    depends_on: [backend]
+volumes:
+  pgdata:

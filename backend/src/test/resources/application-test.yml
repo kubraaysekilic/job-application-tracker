@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${TEST_DB_URL:jdbc:h2:mem:tracker;MODE=PostgreSQL;DB_CLOSE_DELAY=-1}
+    username: ${TEST_DB_USER:sa}
+    password: ${TEST_DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: validate
